@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  food:
+    image: tasty-ai
+    volumes:
+      - ./:/code
+    ports:
+      - "8001:8001"
+    command: fastmcp run mcp_servers/food.py:mcp --transport http --port 8001 --host 0.0.0.0
+
+  language:
+    image: tasty-ai
+    volumes:
+      - ./:/code
+    ports:
+      - "8002:8002"
+    command: fastmcp run mcp_servers/language.py:mcp --transport http --port 8002 --host 0.0.0.0
+
+  image:
+    image: tasty-ai
+    volumes:
+      - ./:/code
+    ports:
+      - "8003:8003"
+    command: fastmcp run mcp_servers/images.py:mcp --transport http --port 8003 --host 0.0.0.0
+
+  agent:
+    image: tasty-ai
+    volumes:
+      - ./:/code
+    ports:
+      - "8004:8004"
+    command: sleep infinity

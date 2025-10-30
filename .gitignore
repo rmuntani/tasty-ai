@@ -1,0 +1,4 @@
+chroma_db/
+full_dataset.csv
+__pycache__
+docker-compose.override.yml
